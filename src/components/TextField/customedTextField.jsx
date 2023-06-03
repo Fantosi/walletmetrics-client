@@ -5,8 +5,8 @@ import style from "./customedTextField.module.css";
 import { useNavigate } from 'react-router-dom';
 
 
-const CustomTextField = () => {
-  const [address, setAddress] = useState("");
+const CustomTextField = ({width, honey }) => {
+  const [address, setAddress] = useState(honey ? "0xD54f502e184B6B739d7D27a6410a67dc462D69c8" : "");
   const navigate = useNavigate();
 
   const handleInputChange = (event) => {
@@ -24,6 +24,7 @@ const CustomTextField = () => {
     }
   };
 
+
   return (
     <>
       <div>
@@ -34,6 +35,7 @@ const CustomTextField = () => {
           placeholder="Enter protocol address"
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
+          style={{ width}}
           InputProps={{
             classes: {
               root: style.noHoverBorder, // Remove hover border style

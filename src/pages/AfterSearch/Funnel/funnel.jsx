@@ -12,17 +12,15 @@ function Funnel(props) {
 
     return (
         <div>
-            <div className={style.container}>
-                <CustomTextField />
-                <Menu menuItems={menuItems} address={address} />
-                <div style={{ color: 'white' }}>
-                    Funnel 화면입니다
-                    <div>{address}</div>
-
-                </div>
-
+            <div className={style.header}>
+                <h2 style={{ flex: 4 }}>WalletMetrics</h2>
+                <h4 style={{ flex: 3 }}>Docs</h4>
+                <h4 style={{ flex: 3 }}>Twitter</h4>
+                <CustomTextField width={'700px'} />
             </div>
-
+            <div className={style.mainmenu}>
+                <Menu menuItems={menuItems} address={address} />
+            </div>
         </div>
 
     );
