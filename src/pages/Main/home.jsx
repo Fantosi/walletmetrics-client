@@ -14,6 +14,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import purple from '../../assets/images/purple.png';
 import blue from '../../assets/images/blue.png';
 import yellow from '../../assets/images/yellow.png';
+import CustomTextField from '../../components/TextField/customedTextField';
 
 function Home(props) {
   const [address, setAddress] = useState("");
@@ -36,7 +37,6 @@ function Home(props) {
   };
 
 
-
   return (
     <div>
       <div className={style.wrapper}>
@@ -45,30 +45,7 @@ function Home(props) {
             <h1>WalletMetrics</h1>
           </div>
           <div>
-            <TextField
-              className={`${style.textField} ${style.noHoverBorder}`}
-              variant="outlined"
-              value={address}
-              placeholder="Enter protocol address"
-              onChange={handleInputChange}
-              onKeyPress={handleKeyPress}
-              InputProps={{
-                classes: {
-                  root: style.noHoverBorder, // Remove hover border style
-                  notchedOutline: style.noHoverBorder, // Remove outline style
-                },
-                inputProps: {
-                  style: {
-                    color: 'white'
-                  }
-                },
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon style={{ fontSize: 40, color: 'white' }} onClick={handleSubmit} />
-                  </InputAdornment>
-                )
-              }}
-            />
+            <CustomTextField />
           </div>
           <div className={style.apps}>
             Apps

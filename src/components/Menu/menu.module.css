@@ -1,9 +1,4 @@
-.container {
-    color: white;
-    text-align: right;
-}
-
-/* .menuBar {
+.menu {
     display: flex;
     padding: 0 115px;
     height: 60px;
@@ -12,4 +7,4 @@
   .menuItem {
     cursor: pointer;
     margin-right: 20px;
-  } */
+  }
