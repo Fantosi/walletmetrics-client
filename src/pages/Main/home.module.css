@@ -1,0 +1,95 @@
+body {
+  background-color: black;
+  padding-left: 115px;
+  padding-right: 115px;
+}
+
+.title {
+  color: white;
+  padding-bottom: 70px;
+  font-size: 30px;
+}
+
+.textField {
+  border-radius: 300px;
+  width: 1100px;
+  background-color: #51516A;
+  color: white;
+  border: none; /* Disable the border */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.noHoverBorder .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+  border: none;
+}
+
+.textField .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border: none;
+}
+
+.textField input::placeholder {
+  color: white;
+  font-size: 20px;
+}
+
+.apps {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 1460px;
+  height: 40px;
+  color: black;
+  background-color: #D9D9D9;
+  padding: 10px;
+  margin-top: 70px;
+  font-size: 25px;
+}
+
+
+.wrapper {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the desired height for the wrapper */
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  height: calc(100vh - 500px); /* Subtract the height of the TextField */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  width: 1500px;
+  padding-top: 200px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+}
+
+.gridItem {
+  color: white;
+  margin: 10px;
+  width: 330px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 2px solid white;
+}
+
+img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
