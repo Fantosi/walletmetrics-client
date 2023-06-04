@@ -23,6 +23,7 @@ function UserBrief() {
     const menuItems = ['UserBrief', 'TxBrief', 'Segmentation', 'Funnel', 'Templates'];
     const timeItems = ['All Time', 'Day', 'Week', 'Month'];
     const [selectedTimeItem, setSelectedTimeItem] = useState('All Time');
+    const [selectedMenuItem, setSelectedMenuItem] = useState('UserBrief');
     const [isLoading, setIsLoading] = useState(true);
 
 
@@ -123,6 +124,7 @@ function UserBrief() {
 
         );
     } else {
+        console.log(selectedMenuItem);
         return (
             <div>
                 <div>
@@ -130,7 +132,7 @@ function UserBrief() {
                 </div>
                 <div className={style.briefbody}>
                     <div className={style.mainmenu}>
-                        <Menu menuItems={menuItems} address={address} />
+                    <Menu menuItems={menuItems} address={address} selectedMenuItem={selectedMenuItem} setSelectedMenuItem={setSelectedMenuItem} />
                     </div>
                     <div className={style.maincontents}>
                         <div className={style.history} style={{ flex: 2 }}>
@@ -153,7 +155,7 @@ function UserBrief() {
                                 <Date menuItems={timeItems} selectedTimeItem={selectedTimeItem} setSelectedTimeItem={setSelectedTimeItem} />
                             </div>
                             <div className={style.graph} style={{ flex: 3 }}>
-                                <ChartComponent newDatasDayChart={newDatasChart} />
+                                <ChartComponent newDatasDayChart={newDatasChart} isTx={false}/>
                             </div>
                         </div>
 

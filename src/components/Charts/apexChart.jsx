@@ -3,9 +3,8 @@ import ApexCharts from 'apexcharts';
 import style from './apexChart.module.css';
 
 
-const ChartComponent = ({ newDatasDayChart }) => {
+const ChartComponent = ({ newDatasDayChart , isTx}) => {
     // 데이터 변환
-    console.log({ newDatasDayChart });
     const transformedData = newDatasDayChart.map((data, index) => ({
         x: new Date(data.startDate).getTime(),
         y: data.newDataNum,
@@ -17,7 +16,7 @@ const ChartComponent = ({ newDatasDayChart }) => {
     // 차트 옵션 설정
     const options = {
         series: [{
-            name: 'New Wallets',
+            name: isTx ? 'New Txs' : 'New Wallets',
             data: transformedData
         }],
         chart: {
@@ -63,7 +62,7 @@ const ChartComponent = ({ newDatasDayChart }) => {
         },
         yaxis: {
             title: {
-                text: 'Number of New Wallets',
+                text: isTx ? 'Number of New Txs': 'Number of New Wallets',
                 style: {
                     color: '#FFFFFF' // Y-axis label color is white
                 }

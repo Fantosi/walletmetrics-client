@@ -22,6 +22,7 @@ function TxBrief(props) {
     const menuItems = ['UserBrief', 'TxBrief', 'Segmentation', 'Funnel', 'Templates'];
     const timeItems = ['All Time', 'Day', 'Week', 'Month'];
     const [selectedTimeItem, setSelectedTimeItem] = useState('All Time');
+    const [selectedMenuItem, setSelectedMenuItem] = useState('TxBrief');
     const [isLoading, setIsLoading] = useState(true);
 
     const [datasNum, setDatasNum] = useState([]);
@@ -98,7 +99,6 @@ function TxBrief(props) {
                 <div className={style.loadingContainer}>
                     <img src={loadingGif} alt="Loading" className={style.loadingSpinner} />
                 </div>
-
             </div>
 
         );
@@ -110,7 +110,12 @@ function TxBrief(props) {
         </div>
         <div className={style.briefbody}>
             <div className={style.mainmenu}>
-                <Menu menuItems={menuItems} address={address} />
+            <Menu
+              menuItems={menuItems}
+              address={address}
+              selectedMenuItem={selectedMenuItem}
+              setSelectedMenuItem={setSelectedMenuItem}
+            />
             </div>
             <div className={style.maincontents}>
                 <div className={style.history} style={{ flex: 2 }}>
@@ -133,7 +138,7 @@ function TxBrief(props) {
                         <Date menuItems={timeItems} selectedTimeItem={selectedTimeItem} setSelectedTimeItem={setSelectedTimeItem} />
                     </div>
                     <div className={style.graph} style={{ flex: 3 }}>
-                        <ChartComponent newDatasDayChart={newDatasChart} />
+                        <ChartComponent newDatasDayChart={newDatasChart} isTx={true}/>
                     </div>
                 </div>
 
