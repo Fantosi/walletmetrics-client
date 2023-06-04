@@ -3,14 +3,15 @@ import ApexCharts from 'apexcharts';
 import style from './apexChart.module.css';
 
 
-const ChartComponent = ({ newDatasDayChart }) => {
+const ChartComponent = ( {newDatasDayChart} ) => {
   // 데이터 변환
+  console.log({newDatasDayChart});
   const transformedData = newDatasDayChart.map((data, index) => ({
     x: index + 1,
-    y: data.newWalletNum,
+    y: data.newDataNum,
     startDate: data.startDate,
     endDate: data.endDate,
-    newWalletCumulativeNum: data.newWalletCumulativeNum
+    newWalletCumulativeNum: data.newDataCumulatedNum
   }));
 
   // 차트 옵션 설정
@@ -32,16 +33,17 @@ const ChartComponent = ({ newDatasDayChart }) => {
         autoSelected: 'zoom'
       }
     },
+    colors:['#ffffff'],
     dataLabels: {
       enabled: false
     },
     markers: {
       size: 0,
     },
-    title: {
-      text: 'New Wallets',
-      align: 'left'
-    },
+    // title: {
+    //   text: 'New Wallets',
+    //   align: 'left'
+    // },
     fill: {
       type: 'gradient',
       gradient: {
@@ -49,22 +51,44 @@ const ChartComponent = ({ newDatasDayChart }) => {
         inverseColors: false,
         opacityFrom: 0.5,
         opacityTo: 0,
-        stops: [0, 90, 100]
+        stops: [0, 90, 100],
+        colorStops: [{
+            offset: 0,
+            color: '#8383ff98' // Blue color
+          }, {
+            offset: 100,
+            color: '#f5f5ff2c' // Blue color
+          }]
       },
     },
     yaxis: {
       title: {
-        text: 'Number of New Wallets'
+        text: 'Number of New Wallets',
+        style: {
+            color: '#FFFFFF' // Y-axis label color is white
+          }
+      },
+      labels: {
+        style: {
+          colors: '#FFFFFF' // White color for Y-axis labels
+        }
       },
     },
     xaxis: {
       type: 'datetime',
       labels: {
         formatter: function (val, timestamp) {
-            const startDate = new Date(timestamp).toLocaleDateString();
+            const startDate = new Date(val).toLocaleDateString();
             return startDate;
-          }
+          },
+           style: {
+        colors: '#FFFFFF' // X-axis label color is white
       }
+      },
+      style: {
+        colors: '#FFFFFF' // X-axis label color is white
+      }
+      
     },
     tooltip: {
       shared: false,
